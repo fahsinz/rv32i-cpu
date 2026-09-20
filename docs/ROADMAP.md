@@ -2,8 +2,8 @@
 
 | Day | Milestone | Deliverables |
 |-----|-----------|--------------|
-| 12 | **Building blocks** | Repo + toolchain, `alu`, `regfile`, `imm_gen`, cocotb unit tests driven by pytest |
-| 13 | **Decode & memory** | Main decoder / control, branch comparator, PC-next logic, unified byte-addressed memory (LB/LH/LW/LBU/LHU, SB/SH/SW) |
+| 12 | **Building blocks** (done) | Repo + toolchain, `alu`, `regfile`, `imm_gen`, cocotb unit tests driven by pytest |
+| 13 | **Decode & memory** (done) | Main decoder / control, branch comparator, PC-next logic, unified byte-addressed memory (LB/LH/LW/LBU/LHU, SB/SH/SW) |
 | 14 | **Single-cycle core** | Datapath integration, halt on ECALL/EBREAK/illegal, RVFI-style commit trace port |
 | 15 | **Programs** | Python RV32I assembler + hex loader, directed test per instruction, first real programs (Fibonacci, bubble sort) |
 | 16 | **Golden model** | Independent Python instruction-set simulator (ISS) of RV32I, self-checked on the directed programs |

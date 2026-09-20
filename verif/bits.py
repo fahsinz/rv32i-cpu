@@ -17,3 +17,13 @@ def to_signed(value: int, width: int = 32) -> int:
 def sign_extend(value: int, width: int) -> int:
     """Sign-extend a `width`-bit field to 32 bits, returned as an unsigned int."""
     return to_signed(value, width) & MASK32
+
+
+def as_int(handle) -> int:
+    """Read a DUT signal as an unsigned int.
+
+    Multi-bit ports come back as LogicArray (to_unsigned); 1-bit ports come back
+    as a plain Logic, which converts with int().
+    """
+    value = handle.value
+    return value.to_unsigned() if hasattr(value, "to_unsigned") else int(value)

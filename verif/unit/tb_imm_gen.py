@@ -11,9 +11,7 @@ import cocotb
 from cocotb.triggers import Timer
 
 from verif.bits import bits, sign_extend
-
-# Mirrors rv32i_pkg.sv
-IMM_SEL = {"I": 0, "S": 1, "B": 2, "U": 3, "J": 4}
+from verif.isa import IMM_SEL
 
 
 def ref_imm(fmt: str, inst: int) -> int:

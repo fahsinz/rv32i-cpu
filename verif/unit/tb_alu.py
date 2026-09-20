@@ -11,20 +11,7 @@ import cocotb
 from cocotb.triggers import Timer
 
 from verif.bits import MASK32, to_signed
-
-# Mirrors rv32i_pkg.sv: {funct7[5], funct3}
-ALU_OPS = {
-    "ADD": 0b0000,
-    "SLL": 0b0001,
-    "SLT": 0b0010,
-    "SLTU": 0b0011,
-    "XOR": 0b0100,
-    "SRL": 0b0101,
-    "OR": 0b0110,
-    "AND": 0b0111,
-    "SUB": 0b1000,
-    "SRA": 0b1101,
-}
+from verif.isa import ALU_OPS
 
 REFERENCE = {
     "ADD": lambda a, b: (a + b) & MASK32,
