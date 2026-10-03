@@ -58,4 +58,15 @@ package rv32i_pkg;
   localparam logic [1:0] WB_MEM = 2'd1;
   localparam logic [1:0] WB_PC4 = 2'd2;  // JAL / JALR link address
 
+  // ---------------------------------------------------------------------------
+  // Halt causes. The core has no trap handler: anything that would take an
+  // exception stops the machine and reports why, which is what a test wants.
+  // ---------------------------------------------------------------------------
+  localparam logic [2:0] HALT_NONE           = 3'd0;
+  localparam logic [2:0] HALT_ECALL          = 3'd1;
+  localparam logic [2:0] HALT_EBREAK         = 3'd2;
+  localparam logic [2:0] HALT_ILLEGAL        = 3'd3;
+  localparam logic [2:0] HALT_MEM_MISALIGN   = 3'd4;
+  localparam logic [2:0] HALT_FETCH_MISALIGN = 3'd5;
+
 endpackage

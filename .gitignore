@@ -6,3 +6,20 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .venv/
+
+# Quartus build artifacts
+fpga/db/
+fpga/incremental_db/
+fpga/output_files/
+fpga/*.rpt
+fpga/*.summary
+fpga/*.qws
+fpga/*.log
+fpga/*.jdi
+fpga/*.pin
+fpga/*.sld
+fpga/*.qpf.bak
+
+# Bug-injection scratch copies
+build/
+fpga/worst_path.txt

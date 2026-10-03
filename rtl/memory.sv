@@ -9,7 +9,7 @@
 
 module memory #(
   parameter int unsigned WORDS     = 4096,  // must be a power of two
-  parameter string       INIT_FILE = ""
+  parameter              INIT_FILE = ""
 ) (
   input  logic        clk,
 

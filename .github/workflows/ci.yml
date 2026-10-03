@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    name: Simulation tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+      - name: Python model self-checks
+        run: |
+          python -m verif.asm
+          python -m verif.iss
+          python -m verif.randgen
+      - name: Block and core tests
+        run: python -m pytest -v
+
+  bug-injection:
+    name: Bug injection
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+      # Every planted bug must be caught; a surviving bug fails the build.
+      - name: Plant known bugs and require the tests to fail
+        run: python tools/inject_bugs.py
